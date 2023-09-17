@@ -21,8 +21,6 @@ export const userSlice = createSlice({
           userName:action.payload.userName,
           userImage:action.payload.userImage,
           role:action.payload.role
-
-
         });
         state.userId = action.payload.userId;
         state.userName = action.payload.userName;

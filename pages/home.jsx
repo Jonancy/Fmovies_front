@@ -55,7 +55,8 @@ export default function Home(){
 
     const properties = {
         duration:5000,
-        transitionDuration: 1000
+        transitionDuration: 1000,
+        arrows:false
     }
 
     const newSlid = slid.slice(0,5)

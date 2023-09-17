@@ -31,7 +31,7 @@ export default function Trending() {
   return (
     <>
       <div className="flex pl-4 pr-4 border-b-8 border-b-blue-400 pb-6 text-sm md:text-xl overflow-auto">
-        <Swiper spaceBetween={50} slidesPerView={3}>
+        <Swiper spaceBetween={50} slidesPerView={3} >
           {newHehe.map((value, index) => (
             <SwiperSlide>
               <div
