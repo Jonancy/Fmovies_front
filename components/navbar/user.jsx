@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { clearData } from "../redux/slice/userSlice";
+import { clearData } from "../../redux/slice/userSlice";
 
-export default function AdminLoggedIn(props) {
+export default function UserLoggedIn(props) {
 
   const[dropDown,setDropDown] = useState(false)
   const dispatch = useDispatch()
@@ -27,9 +27,6 @@ export default function AdminLoggedIn(props) {
           <div className="absolute bottom-0 left-40 top-10 cursor-pointer">
               <div onClick={LogOut}> 
                 LogOut
-              </div>
-              <div> 
-                DashBoard
               </div>
               <div> 
                 Change

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import {getSuggestions} from "../../../services/home/endPoints";
 import Spinner from "../../../components/spinner/spinner";
 import { Link } from "react-router-dom";
+import HoverDetails from "../../../components/hoverDetails/hoverDetails";
 
 export default function Suggestions() {
   const [movie, setMovie] = useState([]);
@@ -39,7 +40,7 @@ export default function Suggestions() {
               <div key={index}>
               <Link to={`/movie/${values.id}`}>
                 <div
-                  className="relative bg-center bg-cover w-[100px] h-[120px] xs:w-[150px] xs:h-[200px] sm:w-[150px] sm:h-[200px]   lg:w-[250px] lg:h-[300px] rounded-[20px]"
+                  className={`relative bg-center bg-cover w-[100px] h-[120px] xs:w-[150px] xs:h-[200px] sm:w-[150px] sm:h-[200px] lg:w-[250px] lg:h-[300px] rounded-[20px] hover:${<HoverDetails />}`}
                   style={{
                     backgroundImage: `url(https://image.tmdb.org/t/p/w300${values.poster_path})`,
                   }}

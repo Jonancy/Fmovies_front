@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import logo from '../assets/FMovies-Logo.png'
+import logo from '../../assets/FMovies-Logo.png'
 import { AiOutlineSearch, AiOutlineFilter } from 'react-icons/ai';
 import { BsArrowRight } from 'react-icons/bs';
-import useWindowState from "../hooks/useWindow";
-import Register from "../features/auth/Register";
+import useWindowState from "../../hooks/useWindow";
+import Register from "../../features/auth/Register";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import UserLoggedIn from "./user";

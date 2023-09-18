@@ -8,8 +8,8 @@ import { getPopular } from "../services/home/endPoints";
 import {Slide} from 'react-slideshow-image'
 import 'react-slideshow-image/dist/styles.css'; // Import the CSS
 import Day from "../features/home/components/top9/Day";
-import Navbar from "../components/navbar";
 import { useSelector } from "react-redux";
+import Navbar from "../components/navbar/navbar";
 
 export default function Home(){
     // const [isLoading, setIsLoading] = useState(true);

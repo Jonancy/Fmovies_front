@@ -4,7 +4,7 @@ import Spinner from "./components/spinner/spinner"
 
 function App() {
   return (
-        <Router />
+        <Router  />
   );
 }
 
