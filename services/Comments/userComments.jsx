@@ -1,16 +1,19 @@
-import { userHttp } from "../userService/mainUserService"
+import { userHttp } from "../userService/mainUserService";
 
+const addUserComments = ({ user_id, movie_id, comments }) => {
+  const res = userHttp.post(
+    `/addComment/${user_id}/${movie_id}`, comments);
+    console.log(comments);
+  return res;
+};
 
-const addUserComments=({id,comment})=>{
-   
-    const res = userHttp.post(`/addComment/${id}`,{comment:comment})
-    return res
+const getUserComments = ({ id,movie_id }) => {
 
-}
+  const res = userHttp.get(`/getUserComments/${id}/${movie_id}`,
+ 
+  );
 
-const getUserComments=({id})=>{
-    const res = userHttp.get(`/getUserComments/${id}`)
-    return res
-}
+  return res;
+};
 
-export {addUserComments,getUserComments}
+export { addUserComments, getUserComments };
