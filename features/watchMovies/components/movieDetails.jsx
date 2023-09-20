@@ -3,7 +3,7 @@ import React from "react";
 export default function MovieDetails(props) {
   return (
     <>
-      <div className="flex">
+      <div className="flex pl-4">
         <div className="w-1/6 h-full">
           <img className="h-full" src={props.movieImage}></img>
         </div>
@@ -12,7 +12,6 @@ export default function MovieDetails(props) {
           <div className="flex">
             <div className="rouned-[20px] bg-cyan-600 p-2">HD</div>
             <div className="rouned-[20px] p-2">HD</div>
-            //AiFillStar
             <p>{props.ratings}</p>
             <p>{props.date}</p>
             <p>{props.min}</p>

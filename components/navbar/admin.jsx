@@ -21,7 +21,7 @@ export default function AdminLoggedIn(props) {
       <div className="relative">
         <div className="flex justify-center items-center  " onClick={dropItems}>
           <p>Welcome back {props.userName}</p>
-          <img className="rounded-[50%] w-1/6" src={props.userImage}></img>
+          <img className="rounded-[50%] w-[5rem]" src={props.userImage}></img>
         </div>
         {dropDown && 
           <div className="absolute bottom-0 left-40 top-10 cursor-pointer">

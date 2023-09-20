@@ -6,7 +6,7 @@ export default function Top9cards(props) {
     <>
       <div className='grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5'>
             {props.top9.map((value, index)=>(
-              <Link to={`movie/${value.id}`}>
+              <Link to={`/movie/${value.id}`}>
             <div className='flex'key={index} >
               
                 <img className='w-[20%] h-[70%]' src={`https://image.tmdb.org/t/p/w780${value.poster_path}`}></img>

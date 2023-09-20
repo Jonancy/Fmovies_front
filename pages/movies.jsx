@@ -25,15 +25,29 @@ export default function Movies() {
   }, []);
 
   return (
+  <>
     <div className="bg-neutral-950 text-white">
       <Navbar />
-      <ForVideo />
       {movieData ? (
-        <MovieDetails movieImage={`https://image.tmdb.org/t/p/original${movieData.backdrop_path}`} type={movieData.type} country={movieData.origin_country} genre={movieData.genres.name} release={movieData.release_date} director={movieData.director} prod={movieData.production_companies.name} cast={movieData.cast} tags={movieData.tagline} />
+        <>
+        <ForVideo movieImage={`https://image.tmdb.org/t/p/original${movieData.backdrop_path}`}/>
+        <MovieDetails
+          movieImage={`https://image.tmdb.org/t/p/original${movieData.backdrop_path}`}
+          type={movieData.type}
+          country={movieData.origin_country}
+          genre={movieData.genres.name}
+          release={movieData.release_date}
+          director={movieData.director}
+          prod={movieData.production_companies.name}
+          cast={movieData.cast}
+          tags={movieData.tagline}
+        />
+        </>
       ) : (
         <p>Loading...</p>
       )}
       <Comments />
     </div>
+  </>
   );
 }
