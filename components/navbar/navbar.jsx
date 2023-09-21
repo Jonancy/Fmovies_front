@@ -112,7 +112,7 @@ export default function Navbar() {
         <nav >
             <div className="">
                 <div className="flex justify-between">
-                    <div className="flex items-center">
+                    <div className="flex items-center cursor-pointer" onClick={()=> navigate('/home')}>
                         <img src={logo} className="w-[9rem]" alt="Logo" />
                     </div>
                     {Respons()}

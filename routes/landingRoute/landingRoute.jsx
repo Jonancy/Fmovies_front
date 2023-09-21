@@ -1,4 +1,4 @@
-import LandingPage from "../pages/landingPage"
+import LandingPage from "../../pages/landingPage"
 
 
 const landingRoute = [
@@ -6,7 +6,10 @@ const landingRoute = [
         id:'landingPage',
         path:'/',
         element:LandingPage,
-        hasLayout:true
+        hasLayout:true,
+        isAdmin:false,
+        isErrorPage:false
+
     }
 ]
 

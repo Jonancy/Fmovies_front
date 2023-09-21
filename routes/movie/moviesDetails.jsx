@@ -1,4 +1,4 @@
-import Movies from "../pages/movies";
+import Movies from "../../pages/movies";
 
 
 export const movieDetails =[
@@ -6,6 +6,9 @@ export const movieDetails =[
         id:'movie',
         path:'/movie/:id',
         element:Movies,
-        haslayout:true
+        hasLayout:true,
+        isAdmin:false,
+        isErrorPage:false
+
     }
 ]

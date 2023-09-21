@@ -64,8 +64,7 @@ export default function Home(){
     return(
         <>
     {/* {isLoading? <Spinner/>: */}
-    <div className="bg-neutral-950 text-white">
-        <Navbar />
+    <div className="">
     <Slide {...properties}>
 
     {newSlid.map((value, index)=>(

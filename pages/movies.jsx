@@ -27,7 +27,6 @@ export default function Movies() {
   return (
   <>
     <div className="bg-neutral-950 text-white">
-      <Navbar />
       {movieData ? (
         <>
         <ForVideo movieImage={`https://image.tmdb.org/t/p/original${movieData.backdrop_path}`}/>

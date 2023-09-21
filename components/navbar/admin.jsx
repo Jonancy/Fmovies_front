@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { clearData } from "../../redux/slice/userSlice";
+import { useNavigate } from "react-router-dom";
 
 export default function AdminLoggedIn(props) {
 
   const[dropDown,setDropDown] = useState(false)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const dropItems=()=>{
     setDropDown(!dropDown)
@@ -28,7 +30,7 @@ export default function AdminLoggedIn(props) {
               <div onClick={LogOut}> 
                 LogOut
               </div>
-              <div> 
+              <div onClick={()=> navigate('/admin/dashboard')}> 
                 DashBoard
               </div>
               <div> 

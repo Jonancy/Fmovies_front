@@ -38,7 +38,7 @@ export default function Comments() {
       console.log(res.data);
 
       //!So at first req is send so that when user post the comment this api also invokes and sends the comments to update the state without reloading the page
-      const response = await getUserComments({ id: id, movie_id: movieId });
+      const response = await getUserComments({ movie_id: movieId });
       setUserComment(response.data.data.usersAllComnments);
 
       // Clear the input field
@@ -51,7 +51,7 @@ export default function Comments() {
   //!Again the api is called cuz when the page reloads or mounts the state remains the same or the comments are shown
   const fetchUserComments = async () => {
     try {
-      const response = await getUserComments({ id, movie_id: movieId });
+      const response = await getUserComments({movie_id: movieId });
       setUserComment(response.data.data.usersAllComnments);
       console.log(response.data.data);
       // console.log(userComment);

@@ -7,9 +7,9 @@ const addUserComments = ({ user_id, movie_id, comments }) => {
   return res;
 };
 
-const getUserComments = ({ id,movie_id }) => {
+const getUserComments = ({movie_id }) => {
 
-  const res = userHttp.get(`/getUserComments/${id}/${movie_id}`,
+  const res = userHttp.get(`/getUserComments/${movie_id}`,
  
   );
 
