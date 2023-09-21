@@ -21,9 +21,7 @@ export default function Admin() {
     if (admin === 'admin') {
         return (
             <>
-            <div className='flex'>
-                <MainAdmin className='w-1/2' />
-            </div>
+                <MainAdmin className='' />
             </>
         );
     } else {

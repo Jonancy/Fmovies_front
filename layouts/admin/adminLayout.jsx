@@ -7,7 +7,7 @@ export default function AdminLayout({children}) {
   return (
     <>
     <div className='flex'>
-      <LeftBar className='1/4' />
+      <LeftBar/>
       {children}
     </div>
     </>

@@ -1,13 +1,13 @@
 import AccessControl from "../../features/admin/LeftBarValues/acessControl";
-import UsersData from "../../features/admin/LeftBarValues/usersData";
+import Admin from "../../pages/admin";
 
 const adminPath = '/admin/dashboard'
 
 export const adminRoutes =[
     {
-        id:'users',
-        path:`${adminPath}/users`,
-        element:UsersData,
+        id:'admin',
+        path:`${adminPath}/`,
+        element:Admin,
         hasLayout:true,
         isAdmin:true,
         isErrorPage:false
