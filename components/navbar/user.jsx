@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { clearData } from "../../redux/slice/userSlice";
+import ProfilePic from "../profilePic/profilePic";
 
-export default function UserLoggedIn(props) {
+export default function UserLoggedIn({userName,userImage}) {
 
   const[dropDown,setDropDown] = useState(false)
   const dispatch = useDispatch()
@@ -20,8 +21,8 @@ export default function UserLoggedIn(props) {
     <>
       <div className="relative">
         <div className="flex justify-center items-center  " onClick={dropItems}>
-          <p>Welcome back {props.userName}</p>
-          <img className="rounded-[50%] w-[5rem]" src={props.userImage}></img>
+          <p>Welcome back {userName}</p>
+          <ProfilePic image={userImage}/>
         </div>
         {dropDown && 
           <div className="absolute bottom-0 left-40 top-10 cursor-pointer">

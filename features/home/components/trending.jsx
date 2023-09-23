@@ -6,9 +6,13 @@ import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css"; // Import the CSS
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { Link } from "react-router-dom";
+import useWindowState from "../../../hooks/useWindow";
 
 export default function Trending() {
   const [hehe, setHehe] = useState([]);
+
+  const[windowWidth] = useWindowState();
 
   const fetchTrend = async () => {
     try {
@@ -26,17 +30,22 @@ export default function Trending() {
 
   const newHehe = hehe.slice(0, 6);
 
+  const slidesPerView = windowWidth <= 1020 ? (windowWidth <= 650 ? 1 : 2) : 3;
+
+
   //!Need to add Slide for the slideshow
   //!Not finished
   return (
     <>
       <div className="flex pl-4 pr-4 border-b-8 border-b-blue-400 pb-6 text-sm md:text-xl overflow-auto">
-        <Swiper spaceBetween={50} slidesPerView={3} >
+        <Swiper spaceBetween={0}  slidesPerView={slidesPerView} >
+      
           {newHehe.map((value, index) => (
             <SwiperSlide>
+            <Link to={`/movie/${value.id}`}>
               <div
                 key={index}
-                className="relative bg-center bg-cover p-4 w-[450px] h-[250px] rounded-[20px] mr-6"
+                className={`relative bg-center bg-cover p-4 w-[400px] h-[250px] rounded-[20px] mr-6`}
                 style={{
                   backgroundImage: `url(https://image.tmdb.org/t/p/original${value.backdrop_path})`,
                 }}
@@ -53,10 +62,12 @@ export default function Trending() {
                   </div>
                 </div>
               </div>
+          </Link>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
+              
     </>
   );
 }

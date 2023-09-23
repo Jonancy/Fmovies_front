@@ -7,7 +7,7 @@ export default function LeftBar() {
 
   return (
     <>
-        <div className='flex flex-col border-r-2 h-max-screen border-r-black w-1/4'>
+        <div className='flex flex-col border-r-2 h-screen border-r-black w-1/4'>
             <div className=''>
                 <div className='flex hover:bg-cyan-300  p-4 border-b-2 border-b-gray-300'>
                     <p>Demo Project</p>

@@ -7,7 +7,7 @@ import {
 import { useSelector } from "react-redux";
 import { userHttp } from "../../../services/userService/mainUserService";
 import { useParams, useNavigate } from "react-router-dom";
-import {AiOutlineLike} from 'react-icons/ai'
+import { AiOutlineLike } from "react-icons/ai";
 import { AiOutlineDislike } from "react-icons/ai";
 
 export default function Comments() {
@@ -51,7 +51,7 @@ export default function Comments() {
   //!Again the api is called cuz when the page reloads or mounts the state remains the same or the comments are shown
   const fetchUserComments = async () => {
     try {
-      const response = await getUserComments({movie_id: movieId });
+      const response = await getUserComments({ movie_id: movieId });
       setUserComment(response.data.data.usersAllComnments);
       console.log(response.data.data);
       // console.log(userComment);
@@ -82,9 +82,19 @@ export default function Comments() {
               onChange={(e) => setComment(e.target.value)}
             />
             {id ? (
-              <button className="rounded-[20px] bg-cyan-700 p-6 ml-4" onClick={(e) => postUserComments(e)}>Post</button>
+              <button
+                className="rounded-[20px] bg-cyan-700 p-6 ml-4"
+                onClick={(e) => postUserComments(e)}
+              >
+                Post
+              </button>
             ) : (
-              <button className="rounded-[20px] bg-cyan-700 p-6 ml-4" onClick={() => navigate("/login")}>Post</button>
+              <button
+                className="rounded-[20px] bg-cyan-700 p-6 ml-4"
+                onClick={() => navigate("/login")}
+              >
+                Post
+              </button>
             )}
           </div>
           <div className="flex flex-col ">
@@ -97,11 +107,15 @@ export default function Comments() {
                 <div className="flex flex-col pl-2">
                   <p>{comment.name}</p>
                   <p>{comment.comment}</p>
-                  <div className="flex justify-center items-center justify-between w-[9rem] font-bold text-neutral-500">
+                  <div className="flex justify-center items-center justify-between w-[11rem] font-bold text-neutral-500">
                     <AiOutlineLike />
                     <AiOutlineDislike />
-                    <p >Reply</p>
-                    <p >Share</p>
+                    <p>Reply</p>
+                    <p>Share</p>
+                    {id === comment.userId && (
+                      <p className="">Edit</p>
+                    ) }
+                 
                   </div>
                 </div>
               </div>

@@ -6,3 +6,8 @@ export const getAllUser=()=>{
     return res
     
 }
+
+export const userDelete=(id)=>{
+    const res = userHttp.delete(`/userDelete/${id}`)
+    return res
+}

@@ -10,6 +10,7 @@ import 'react-slideshow-image/dist/styles.css'; // Import the CSS
 import Day from "../features/home/components/top9/Day";
 import { useSelector } from "react-redux";
 import Navbar from "../components/navbar/navbar";
+import { Link } from "react-router-dom";
 
 export default function Home(){
     // const [isLoading, setIsLoading] = useState(true);
@@ -66,20 +67,22 @@ export default function Home(){
     {/* {isLoading? <Spinner/>: */}
     <div className="">
     <Slide {...properties}>
-
     {newSlid.map((value, index)=>(
+    // <Link to={`/movie/${value.id}`}>
         <div key={index} className="w-full">
-
-        <div className=" relative bg-cover h-screen bg-center "style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${value.backdrop_path})`}} >
+        <div className=" relative bg-cover h-screen bg-center  "style={{ backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)),url(https://image.tmdb.org/t/p/original${value.backdrop_path})`}} >
             {/* {console.log(value.poster_path)} */}
             <Main Title={value.title} Overview={value.overview} />
         </div>
         </div>
+    // </Link>
     ))}
     </Slide>
         <Trending />
+        <div className="lg:flex xl:flex-col ">
         <Suggestions />
         <Day />
+        </div>
     </div>
     {/* } */}
         </>
