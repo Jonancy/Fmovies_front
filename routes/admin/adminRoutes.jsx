@@ -10,7 +10,10 @@ export const adminRoutes =[
         element:Admin,
         hasLayout:true,
         isAdmin:true,
-        isErrorPage:false
+        isErrorPage:false,
+        isLandingPage:false,
+        isAuthPage:false
+
 
     },
     {
@@ -19,7 +22,9 @@ export const adminRoutes =[
         element:AccessControl,
         hasLayout: true,
         isAdmin:true,
-        isErrorPage:false
+        isErrorPage:false,
+        isLandingPage:false,
+        isAuthPage:false
 
     }
     ]

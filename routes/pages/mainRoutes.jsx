@@ -9,7 +9,9 @@ const mainRoutes = [
     element: Home,
     hasLayout: true,
     isAdmin:false,
-    isErrorPage:false
+    isErrorPage:false,
+    isAuthPage:false
+
 
   },
   {
@@ -18,7 +20,9 @@ const mainRoutes = [
     element: Admin,
     hasLayout:true,
     isAdmin:true,
-    isErrorPage:false
+    isErrorPage:false,
+    isAuthPage:false
+
 
   }
 ];

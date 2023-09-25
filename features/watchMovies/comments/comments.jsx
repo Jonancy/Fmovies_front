@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import bill from "../../../assets/bill.jpg";
 import {
   addUserComments,
+  deleteUserComment,
   getUserComments,
 } from "../../../services/Comments/userComments";
 import { useSelector } from "react-redux";
@@ -60,6 +61,23 @@ export default function Comments() {
     }
   };
 
+  const deleteUserCom=async(id,commentId)=>{
+    try{
+
+      //!This is used to update the state of the website when user deletes the comments
+      //!So the if the id is not equal to the state id then it will not display 
+      setUserComment((prevUserComment) =>
+      prevUserComment.filter((comment) => comment.commentId !== commentId)
+    );
+
+      const res = await deleteUserComment({userId:id, commentId:commentId})
+      console.log(res.data.data.message)
+    }catch(e){
+      console.log(e)
+    }
+
+  }
+
   useEffect(() => {
     fetchUserComments();
   }, []);
@@ -107,15 +125,17 @@ export default function Comments() {
                 <div className="flex flex-col pl-2">
                   <p>{comment.name}</p>
                   <p>{comment.comment}</p>
-                  <div className="flex justify-center items-center justify-between w-[11rem] font-bold text-neutral-500">
+                  <div className={`flex justify-center items-center justify-between ${id === comment.userId ? 'w-[17rem]':'w-[10rem]'} font-bold text-neutral-500`}>
                     <AiOutlineLike />
                     <AiOutlineDislike />
                     <p>Reply</p>
                     <p>Share</p>
                     {id === comment.userId && (
-                      <p className="">Edit</p>
-                    ) }
-                 
+                      <>
+                        <p className="">Edit</p>
+                        <button className="" onClick={()=>deleteUserCom(id,comment.commentId)}>Delete</button>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>

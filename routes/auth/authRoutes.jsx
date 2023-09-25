@@ -10,7 +10,10 @@ const authRoutes = [
         element:Login,
         hasLayout:true,
         isAdmin:false,
-        isErrorPage:false
+        isErrorPage:false,
+        isLandingPage:false,
+        isAuthPage:true
+
 
     },
     {
@@ -19,7 +22,11 @@ const authRoutes = [
         element:Register,
         hasLayout:true,
         isAdmin:false,
-        isErrorPage:false
+        isErrorPage:false,
+        isLandingPage:false,
+        isAuthPage:true
+
+
 
     }
 ]

@@ -16,4 +16,10 @@ const getUserComments = ({movie_id }) => {
   return res;
 };
 
-export { addUserComments, getUserComments };
+const deleteUserComment=({userId,commentId})=>{
+
+  const res = userHttp.delete(`/deleteUserComments/${userId}/${commentId}`)
+  return res
+}
+
+export { addUserComments, getUserComments, deleteUserComment };

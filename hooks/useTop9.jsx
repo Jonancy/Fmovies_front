@@ -7,7 +7,7 @@ export default function useMainTop9() {
     const[hera,newHera] = useState([])
 
     const fetchTop=async()=>{
-        const response= await getTopRated()
+        const response= await getTopRated(2)
         console.log(response.data)
         newHera(response.data.results)
         

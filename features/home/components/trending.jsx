@@ -16,7 +16,7 @@ export default function Trending() {
 
   const fetchTrend = async () => {
     try {
-      const response = await getPopular();
+      const response = await getPopular(9);
       console.log(response.data);
       setHehe(response.data.results);
     } catch (e) {
@@ -28,7 +28,7 @@ export default function Trending() {
     fetchTrend();
   }, []);
 
-  const newHehe = hehe.slice(0, 6);
+  const newHehe = hehe.slice(0, 9);
 
   const slidesPerView = windowWidth <= 1020 ? (windowWidth <= 650 ? 1 : 2) : 3;
 
@@ -37,7 +37,7 @@ export default function Trending() {
   //!Not finished
   return (
     <>
-      <div className="flex pl-4 pr-4 border-b-8 border-b-blue-400 pb-6 text-sm md:text-xl overflow-auto">
+      <div className="flex pl-4 pr-4 border-b-8 border-b-blue-400 pb-6 text-sm md:text-xl overflow-auto ">
         <Swiper spaceBetween={0}  slidesPerView={slidesPerView} >
       
           {newHehe.map((value, index) => (
@@ -45,7 +45,7 @@ export default function Trending() {
             <Link to={`/movie/${value.id}`}>
               <div
                 key={index}
-                className={`relative bg-center bg-cover p-4 w-[400px] h-[250px] rounded-[20px] mr-6`}
+                className={`relative bg-center bg-cover  p-4 w-[400px] h-[250px] rounded-[20px] mr-6`}
                 style={{
                   backgroundImage: `url(https://image.tmdb.org/t/p/original${value.backdrop_path})`,
                 }}

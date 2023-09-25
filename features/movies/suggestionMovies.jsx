@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from "react";
-import DayList from "./dayList";
-import Button from "./button/button";
-import Week from "./weekList";
-import Month from "./month";
-import Top9cards from "../../../../components/top9/top9cards";
-import MainTop9 from "../../../../hooks/useTop9";
-import useMainTop9 from "../../../../hooks/useTop9";
+import React, { useState } from "react";
+import useMainTop9 from "../../hooks/useTop9";
 import { BsPlayBtnFill } from "react-icons/bs";
-import { getTopRated } from "../../../../services/home/endPoints";
+import Top9cards from "../../components/top9/top9cards";
 
-export default function Day() {
+
+export default function SuggestedMovies() {
   const [selectedOption, setSelectedOption] = useState("day");
 
   // const forDay=()=>{
@@ -23,36 +18,15 @@ export default function Day() {
   // const forMonth=()=>{
   //     setSelectedOption('month')
   // }
-  const[mera,newHera] = useState([])
-  const[hero,setHero] = useState([])
-
-  const fetchTop=async()=>{
-      const response= await getTopRated(4)
-      console.log(response.data)
-      newHera(response.data.results)
-      
-  }
-
-  const fetchMe=async()=>{
-    const response= await getTopRated(7)
-    console.log(response.data)
-    setHero(response.data.results)
-    
-}
-
-  useEffect(()=>{
-      fetchTop();
-      fetchMe();
-  },[])
 
   const { hera } = useMainTop9();
   console.log(hera);
 
   //!For Week List
-  const week = mera.slice(0, 7);
+  const week = hera.slice(0, 7);
 
   //!For Month List
-  const month = hero.slice(0, 10);
+  const month = hera.slice(0, 10);
 
   //?After props is passed from children like day or month it will change according to it
   return (
@@ -61,9 +35,9 @@ export default function Day() {
         <div className="flex">
           <div className="p-2 text-2xl font-bold flex items-center gap-2">
             <BsPlayBtnFill className="text-cyan-600"/>
-            <p>TOP 9 </p>
+            <p>Suggestions </p>
           </div>
-          <Button selectedItem={setSelectedOption} />
+          {/* <Button selectedItem={setSelectedOption} /> */}
         </div>
         <div>
           {selectedOption === "week" ? <Top9cards top9={week} /> : null}

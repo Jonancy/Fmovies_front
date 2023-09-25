@@ -8,7 +8,10 @@ const landingRoute = [
         element:LandingPage,
         hasLayout:true,
         isAdmin:false,
-        isErrorPage:false
+        isErrorPage:false,
+        isLandingPage:true,
+        isAuthPage:false
+
 
     }
 ]

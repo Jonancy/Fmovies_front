@@ -5,33 +5,38 @@ import http from "../mainService";
 
 const apiKey = import.meta.env.VITE_API_Key;
 
-export const getSuggestions =()=>{
+export const getSuggestions =(page)=>{
     const res = http.get(`/now_playing`, {
         params:{
-            api_key:apiKey
+            api_key:apiKey,
+            page:page
         }
     })
     return res
 }
 
-export const getPopular=()=>{
+export const getPopular=(page)=>{
     const res = http.get(`/popular`,{
         params:{
-            api_key:apiKey
+            api_key:apiKey,
+            page:page
         }
     })
     return res
 }
 
 
-export const getTopRated=()=>{
+export const getTopRated=(page)=>{
     const res = http.get(`/top_rated`,{
         params:{
-            api_key:apiKey
+            api_key:apiKey,
+            page:page
         }
     })
     return res
 }
+
+
 
 // const getSuggestions=()=>{
 //     const response = http.get('/now_playing?api_key=20417ea93926bf18e386121e3e3f564f')

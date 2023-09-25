@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { getSuggestions } from "../../../services/home/endPoints";
-import Spinner from "../../../components/spinner/spinner";
-import { Link } from "react-router-dom";
-import HoverDetails from "../../../components/hoverDetails/hoverDetails";
-import { BsPlayBtn, BsPlayBtnFill } from "react-icons/bs";
-import Skeleton from "react-loading-skeleton";
-import CardSkeletons from "../../../components/Skeleton/CardSkeletons";
-import TvShows from "./tvShows";
+import { getPopular, getSuggestions, getTopRated } from "../../services/home/endPoints";
+import { BsPlayBtnFill } from "react-icons/bs";
+import CardSkeletons from "../../components/Skeleton/CardSkeletons";
+import { Link, useNavigate } from "react-router-dom";
+import HoverDetails from "../../components/hoverDetails/hoverDetails";
+import TvShows from "../home/components/tvShows";
 
-export default function Suggestions() {
+
+export default function Moviesss2() {
   const [movies, setMovies] = useState([]);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const[watch, setWatch] = useState('movie');
 
+  const navigate = useNavigate()
+
   const fetchApi = async () => {
     try {
-      const resp = await getSuggestions(8);
+      const resp = await getPopular(2);
       console.log(resp.data);
       setMovies(resp.data.results);
       setIsLoading(false);
@@ -48,23 +49,14 @@ export default function Suggestions() {
   return (
     <>
       
-        <div className="pl-[20px] pr-[80px]  ">
+        <div className="pl-[20px] pr-[80px] w-full" >
           <div className="flex items-center">
             <BsPlayBtnFill className="text-cyan-500 text-2xl" />
-            <p className="p-4 text-2xl font-bold">RECOMMENDED</p>
-            <button className="border-2 border-cyan-500 mr-2 text-sm p-1 rounded-[10px]" onClick={watchMovie}>
-              Movies
-            </button>
-            <button onClick={setWatch} className="border-2 border-cyan-500 text-sm p-1 rounded-[10px]">
-              TV shows
-            </button>
+            <p className="p-4 text-2xl font-bold">Movies</p>
           </div>
       {isLoading ? (
         <CardSkeletons />
       ) : (
-
-        watch === 'movie'?
-        (
           <div className="grid grid-cols-2 gap-4 xs:grid-cols-2 xs:gap-4 sm:grid-cols-3 sm:gap-2 md:grid-cols-4 md:gap-9">
             {movies.map((movie, index) => (
               <div
@@ -108,11 +100,16 @@ export default function Suggestions() {
                 )}
               </div>
             ))}
-           
           </div>
-        ):
-        <TvShows />
         )}
+        <div className="flex items-center justify-center">
+            <div className="bg-neutral-500 p-4 m-2 rounded-[10px]" onClick={()=>navigate('/movieLists')}>
+                1
+            </div>
+            <div className="bg-neutral-500 p-4 rounded-[10px]">
+                2
+            </div>
+        </div>
         </div>
       
     </>

@@ -21,11 +21,11 @@ export default function UserLoggedIn({userName,userImage}) {
     <>
       <div className="relative">
         <div className="flex justify-center items-center  " onClick={dropItems}>
-          <p>Welcome back {userName}</p>
+          <p>{userName}</p>
           <ProfilePic image={userImage}/>
         </div>
         {dropDown && 
-          <div className="absolute bottom-0 left-40 top-10 cursor-pointer">
+          <div className="absolute bottom-0 right-full top-10 cursor-pointer">
               <div onClick={LogOut}> 
                 LogOut
               </div>

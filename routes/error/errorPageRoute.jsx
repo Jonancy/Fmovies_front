@@ -8,7 +8,11 @@ export const errorPageRoutes= [
         element:ErrorPage,
         hasLayout: true,
         isAdmin:false,
-        isErrorPage:true
+        isErrorPage:true,
+        isLandingPage:false,
+        isAuthPage:false
+
+
     }
 ]
 

@@ -6,28 +6,13 @@ import HoverDetails from "../../../components/hoverDetails/hoverDetails";
 import { BsPlayBtn, BsPlayBtnFill } from "react-icons/bs";
 import Skeleton from "react-loading-skeleton";
 import CardSkeletons from "../../../components/Skeleton/CardSkeletons";
-import TvShows from "./tvShows";
+import { tvShows } from "../../../services/tvJson/tvJson";
 
-export default function Suggestions() {
-  const [movies, setMovies] = useState([]);
+export default function TvShows() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const[watch, setWatch] = useState('movie');
+  const [isLoading, setIsLoading] = useState(false);
 
-  const fetchApi = async () => {
-    try {
-      const resp = await getSuggestions(8);
-      console.log(resp.data);
-      setMovies(resp.data.results);
-      setIsLoading(false);
-    } catch (e) {
-      console.log("Error", e);
-    }
-  };
 
-  useEffect(() => {
-    fetchApi();
-  }, []);
 
   const handleMouseEnter = (index) => {
     setHoveredIndex(index);
@@ -37,36 +22,16 @@ export default function Suggestions() {
     setHoveredIndex(null);
   };
 
-  const watchMovie=()=>{
-    setWatch('movie')
-  }
-
-  const watchTV=()=>{
-    setWatch('tv')
-  }
 
   return (
     <>
-      
-        <div className="pl-[20px] pr-[80px]  ">
-          <div className="flex items-center">
-            <BsPlayBtnFill className="text-cyan-500 text-2xl" />
-            <p className="p-4 text-2xl font-bold">RECOMMENDED</p>
-            <button className="border-2 border-cyan-500 mr-2 text-sm p-1 rounded-[10px]" onClick={watchMovie}>
-              Movies
-            </button>
-            <button onClick={setWatch} className="border-2 border-cyan-500 text-sm p-1 rounded-[10px]">
-              TV shows
-            </button>
-          </div>
+    
       {isLoading ? (
         <CardSkeletons />
       ) : (
-
-        watch === 'movie'?
-        (
+        
           <div className="grid grid-cols-2 gap-4 xs:grid-cols-2 xs:gap-4 sm:grid-cols-3 sm:gap-2 md:grid-cols-4 md:gap-9">
-            {movies.map((movie, index) => (
+            {tvShows.map((movie, index) => (
               <div
                 key={index}
                 className="relative"
@@ -94,13 +59,13 @@ export default function Suggestions() {
                       </div>
                       <p>90 min</p>
                     </div>
-                    <p>{movie.title}</p>
+                    <p>{movie.name}</p>
                   </div>
                 </Link>
                 {hoveredIndex === index && (
                   <div className="absolute top-0 left-full ml-2 z-10">
                     <HoverDetails
-                      title={movie.title}
+                      title={movie.name}
                       vote={movie.vote_average}
                       overview={movie.overview}
                     />
@@ -110,10 +75,7 @@ export default function Suggestions() {
             ))}
            
           </div>
-        ):
-        <TvShows />
         )}
-        </div>
       
     </>
   );

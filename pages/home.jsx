@@ -11,6 +11,7 @@ import Day from "../features/home/components/top9/Day";
 import { useSelector } from "react-redux";
 import Navbar from "../components/navbar/navbar";
 import { Link } from "react-router-dom";
+import LatestMovies from "../features/home/components/LatestMovies";
 
 export default function Home(){
     // const [isLoading, setIsLoading] = useState(true);
@@ -40,7 +41,7 @@ export default function Home(){
     const fetSlider=async()=>{
     try{
 
-        const respon = await getPopular();
+        const respon = await getPopular(5);
         console.log(respon.data.results)
         err(respon.data.results)
     }catch(e){
@@ -60,7 +61,7 @@ export default function Home(){
         arrows:false
     }
 
-    const newSlid = slid.slice(0,5)
+    const newSlid = slid.slice(0,6)
 
     return(
         <>
@@ -83,6 +84,7 @@ export default function Home(){
         <Suggestions />
         <Day />
         </div>
+        <LatestMovies  />
     </div>
     {/* } */}
         </>
