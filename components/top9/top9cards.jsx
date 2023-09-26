@@ -21,6 +21,9 @@ export default function Top9cards(props) {
             <div className='flex relative mb-3 bg-neutral-900 rounded-[1rem] hover:bg-cyan-500'key={index}  onMouseEnter={()=>hoverMouse(index)}  onMouseLeave={unhoverMouse}>
                 <img className='w-[4rem] h-[5rem] rounded-[1rem] ' src={`https://image.tmdb.org/t/p/w780${value.poster_path}`} 
                 ></img>
+                <div className='absolute text-center bottom-6 left-0 transform -translate-x-1/2 bg-black rounded-[50%] border-4 border-cyan-600 w-[2rem]'>
+                  <p className=''>{index}</p>
+                </div>
                 <div className='flex flex-col'>
                     <div className='flex'>
                         <p>Movie</p>

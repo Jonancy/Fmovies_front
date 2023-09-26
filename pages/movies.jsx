@@ -5,6 +5,7 @@ import Navbar from "../components/navbar/navbar";
 import ForVideo from "../features/watchMovies/components/forMovie";
 import MovieDetails from "../features/watchMovies/components/movieDetails";
 import Comments from "../features/watchMovies/comments/comments";
+import SuggestedMovies from "../features/movies/suggestionMovies";
 
 export default function Movies() {
   const { id } = useParams(); // Destructure the id from useParams()
@@ -32,8 +33,9 @@ export default function Movies() {
         <ForVideo movieImage={`https://image.tmdb.org/t/p/original${movieData.backdrop_path}`}/>
         <MovieDetails
           movieImage={`https://image.tmdb.org/t/p/original${movieData.backdrop_path}`}
+          movieTitle={movieData.original_title}
           type={movieData.type}
-          country={movieData.origin_country}
+          country={movieData.production_countries.name}
           genre={movieData.genres.name}
           release={movieData.release_date}
           director={movieData.director}
@@ -45,7 +47,10 @@ export default function Movies() {
       ) : (
         <p>Loading...</p>
       )}
-      <Comments />
+      <div className=" lg:flex xl:flex-col  justify-between">
+        <Comments />
+        <SuggestedMovies />
+      </div>
     </div>
   </>
   );

@@ -22,4 +22,10 @@ const deleteUserComment=({userId,commentId})=>{
   return res
 }
 
-export { addUserComments, getUserComments, deleteUserComment };
+
+const updateUserComment =(movieId,commentId, updatedComment)=>{
+  const res = userHttp.patch(`/updateUserComments/${commentId}/${movieId}`,{comment:updatedComment})
+  return res
+}
+
+export { addUserComments, getUserComments, deleteUserComment, updateUserComment};
